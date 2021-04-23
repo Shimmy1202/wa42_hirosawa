@@ -11,9 +11,15 @@
     ></script>
   </head>
   <body>
-    <div x-data="{ open: false }">
-      <button @click="open = !open">押す</button>
-      <p x-show="open">見える？</p>
+    <div x-data="{ tab: 'foo' }">
+      <button :class="{ 'active': tab === 'foo' }" @click="tab = 'foo'">
+        Foo
+      </button>
+      <button :class="{ 'active': tab === 'bar' }" @click="tab = 'bar'">
+        Bar
+      </button>
+      <div x-show="tab === 'foo'">Tab Foo</div>
+      <div x-show="tab === 'bar'">Tab Bar</div>
     </div>
   </body>
 </html>
